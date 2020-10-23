@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPCService";
+
+package account;
+
+service Account {
+  rpc GetAccount (AccountRequest) returns (AccountResponse);
+  rpc HealthProve (StringResponse) returns (StringResponse);
+}
+
+message StringResponse {
+  string message = 1;
+}
+
+message AccountRequest {
+  string cpf = 1;
+}
+
+message AccountResponse {
+  string name = 1;
+  int64 accountNumer = 2;
+  int32 agencyNumber = 3;
+  string created = 4;
+}

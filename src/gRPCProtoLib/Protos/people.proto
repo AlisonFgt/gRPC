@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "gRPCService";
+
+package people;
+
+service People {
+  rpc GetPeople (PeopleRequest) returns (PeopleResponse);
+  rpc HealthProve (StringDto) returns (StringDto);
+}
+
+message StringDto {
+  string message = 1;
+}
+
+message PeopleRequest {
+  string cpf = 1;
+}
+
+message PeopleResponse {
+  string name = 1;
+  string cpf = 2;
+  int32 age = 3;
+  string created = 4;
+}
